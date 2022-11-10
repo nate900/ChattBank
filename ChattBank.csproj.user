@@ -1,7 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="Views\Admin\AdminHome.cs">
+    <Compile Update="Views\AdminViews\AdminCreateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdminViews\AdminDeleteCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdminViews\AdminHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CustomerViews\CustomerHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CustomerViews\DepositForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CustomerViews\MyInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CustomerViews\NewAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CustomerViews\WithdrawForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\Home\Login.cs">

@@ -1,5 +1,4 @@
 C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.csproj.AssemblyReference.cache
-C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.Views.Admin.AdminHome.resources
 C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.Views.Home.Login.resources
 C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.Welcome.resources
 C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.csproj.GenerateResource.cache
@@ -17,3 +16,14 @@ C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\refint\
 C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.pdb
 C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.genruntimeconfig.cache
 C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ref\ChattBank.dll
+C:\Users\josia\source\repos\ChattBank\ChattBank\bin\Debug\net6.0-windows\System.Data.OleDb.dll
+C:\Users\josia\source\repos\ChattBank\ChattBank\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Data.OleDb.dll
+C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.csproj.CopyComplete
+C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.Views.AdminViews.AdminHome.resources
+C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.Views.CustomerViews.CustomerHome.resources
+C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.Views.CustomerViews.MyInfo.resources
+C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.Views.CustomerViews.NewAccount.resources
+C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.Views.AdminViews.AdminCreateCustomer.resources
+C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.Views.AdminViews.AdminDeleteCustomer.resources
+C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.Views.CustomerViews.DepositForm.resources
+C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.Views.CustomerViews.WithdrawForm.resources

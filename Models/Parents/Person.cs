@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChattBank.Models.Parents
 {
-    internal abstract class Person
+    public abstract class Person
     {
         public string Username { get; set; }
         public string Password { get; set; }
