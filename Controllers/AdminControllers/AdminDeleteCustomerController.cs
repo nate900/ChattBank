@@ -62,6 +62,9 @@ namespace ChattBank.Controllers.AdminControllers
                     MessageBox.Show("Something went wrong with deleting the customer");
                 }
             }
+
+            // reset the textbox
+            Reset();
         }
 
         public void GoBack()

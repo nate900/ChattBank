@@ -39,7 +39,14 @@
             this.btnMyInfo = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnNewAccount
@@ -135,12 +142,53 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Location = new System.Drawing.Point(803, 72);
+            this.groupBox2.Controls.Add(this.listView2);
+            this.groupBox2.Location = new System.Drawing.Point(765, 72);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(374, 315);
+            this.groupBox2.Size = new System.Drawing.Size(425, 315);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Account Activity";
+            // 
+            // listView2
+            // 
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
+            this.listView2.Location = new System.Drawing.Point(6, 26);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(413, 283);
+            this.listView2.TabIndex = 0;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Name";
+            this.columnHeader4.Width = 100;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Account #";
+            this.columnHeader5.Width = 100;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Amount";
+            this.columnHeader6.Width = 100;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Description";
+            this.columnHeader7.Width = 150;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Time";
+            this.columnHeader8.Width = 100;
             // 
             // CustomerHome
             // 
@@ -153,6 +201,7 @@
             this.Name = "CustomerHome";
             this.Text = "CustomerHome";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,5 +220,11 @@
         private Button btnMyInfo;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
+        private ListView listView2;
+        private ColumnHeader columnHeader4;
+        private ColumnHeader columnHeader5;
+        private ColumnHeader columnHeader6;
+        private ColumnHeader columnHeader7;
+        private ColumnHeader columnHeader8;
     }
 }

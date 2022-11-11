@@ -37,6 +37,9 @@ namespace ChattBank.Controllers.CustomerControllers
 
         public bool MakeDeposit()
         {
+            // make a deposit object
+            Deposit depo = new Deposit();
+            depo.Customer = model;
             TextBox[] txtboxes = this._form.GetTextBoxes();
             bool result = true;
             // validate account number
@@ -49,6 +52,7 @@ namespace ChattBank.Controllers.CustomerControllers
                     {
                         // match was found
                         result = true;
+                        depo.Account = accts[i];
                         break;
                     }
                     else
@@ -65,13 +69,20 @@ namespace ChattBank.Controllers.CustomerControllers
                 return result;
             }
 
+            // validate the description
+            if (!String.IsNullOrEmpty(txtboxes[2].Text))
+            {
+                depo.Desc = txtboxes[2].Text;
+            }
+
             // validate deposit
-            decimal deposit = 0;
+            decimal depoAmount = 0;
             if (!String.IsNullOrEmpty(txtboxes[1].Text))
             {
                 if(decimal.TryParse(txtboxes[1].Text, out decimal amount))
                 {
-                    deposit = decimal.Parse(txtboxes[1].Text);
+                    depoAmount = decimal.Parse(txtboxes[1].Text);
+                    depo.Amount = depoAmount;
                 }
                 else
                 {
@@ -79,7 +90,7 @@ namespace ChattBank.Controllers.CustomerControllers
                     result = false;
                 }
 
-                if(deposit <= 0)
+                if(depoAmount <= 0)
                 {
                     MessageBox.Show("Please enter a value greater than zero");
                     result = false;
@@ -92,10 +103,13 @@ namespace ChattBank.Controllers.CustomerControllers
                 Account acct = new Account();
                 if (acct.Read(txtboxes[0].Text))
                 {
-                    acct.Balance += deposit;
+                    acct.Balance += depoAmount;
                     if (acct.Update())
                     {
-                        MessageBox.Show("Success!!! You made a deposit");
+                        if (depo.Create())
+                        {
+                            MessageBox.Show("Success!!! You made a deposit");
+                        }
                     }
                     else
                     {

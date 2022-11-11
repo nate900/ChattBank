@@ -42,7 +42,7 @@ namespace ChattBank.Views.CustomerViews
             controller.GoBack();
         }
 
-        public TextBox[] GetTextBoxes() { return new TextBox[] { this.txtAccountNo, this.txtAmount }; }
+        public TextBox[] GetTextBoxes() { return new TextBox[] { this.txtAccountNo, this.txtAmount, this.txtDesc }; }
         public ListView GetListView() { return this.listView1; }
     }
 }

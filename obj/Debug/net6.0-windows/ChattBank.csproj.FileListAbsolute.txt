@@ -27,3 +27,4 @@ C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBa
 C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.Views.AdminViews.AdminDeleteCustomer.resources
 C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.Views.CustomerViews.DepositForm.resources
 C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.Views.CustomerViews.WithdrawForm.resources
+C:\Users\josia\source\repos\ChattBank\ChattBank\obj\Debug\net6.0-windows\ChattBank.Properties.Resources.resources

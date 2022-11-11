@@ -16,6 +16,8 @@ namespace ChattBank.Models.Parents.Children
         public string Email { get; set; }
         public string Address { get; set; }
         private List<Account> _accounts;
+        private List<Deposit> _deposits;
+        private List<Withdraw> _withdraws;
 
         // private database utility class
         private class Db : Database { public Db() { } }
@@ -31,11 +33,20 @@ namespace ChattBank.Models.Parents.Children
         public List<Account> Accounts() { return _accounts; }
         public void SetAccounts(List<Account> accounts) { this._accounts = accounts; }
 
+        // setter and getter for _deposits object
+        public List<Deposit> Deposits() { return _deposits; }
+        public void SetDeposits(List<Deposit> deposits) { this._deposits = deposits; }
+
+        // setter and getter for _withdraws object
+        public List<Withdraw> Withdraws() { return _withdraws; }
+        public void SetWithdraws(List<Withdraw> withdraws) { this._withdraws = withdraws; }
+
         // InsertDB method
         public bool Create()
         {
+            this.Username = (Int32.Parse(this.ReadMAXCustId()) + 1).ToString();
             bool result = false;
-            db.cmd = "INSERT INTO Customers VALUES('" + (Int32.Parse(this.ReadMAXCustId()) + 1) + "', '" + Password + "', '" + Fname + "', '" + Lname + "' , '" + Address + "', '" + Email + "');";
+            db.cmd = "INSERT INTO Customers VALUES('" + Username + "', '" + Password + "', '" + Fname + "', '" + Lname + "' , '" + Address + "', '" + Email + "');";
             db.OleDbDataAdapter.InsertCommand.CommandText = db.cmd;
             db.OleDbDataAdapter.InsertCommand.Connection = db.OleDbConnection;
             Console.WriteLine(db.cmd);
@@ -193,6 +204,94 @@ namespace ChattBank.Models.Parents.Children
                     acct.Type = dr.GetString(2);
                     acct.Balance = dr.GetDecimal(3);
                     this._accounts.Add(acct);
+                    result = true;
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                System.Diagnostics.Debug.WriteLine(e.ToString());
+            }
+            finally
+            {
+                db.OleDbConnection.Close();
+            }
+            return result;
+        }
+
+        // GetAccounts() returns true if there were records found. The method searches for all customer deposits
+        public bool GetDeposits()
+        {
+            bool result = false;
+            this._deposits = new List<Deposit>();
+            db.cmd = "SELECT * FROM Deposits WHERE CustomerID = '" + Username + "';";
+            db.OleDbDataAdapter.SelectCommand.CommandText = db.cmd;
+            db.OleDbDataAdapter.SelectCommand.Connection = db.OleDbConnection;
+            Console.WriteLine(db.cmd);
+            System.Diagnostics.Debug.WriteLine(db.cmd);
+            try
+            {
+                db.OleDbConnection.Open();
+                System.Data.OleDb.OleDbDataReader dr = db.OleDbDataAdapter.SelectCommand.ExecuteReader();
+
+                // Acount object to hold an account's information
+                Deposit depo;
+                // read data
+                while (dr.Read())
+                {
+                    depo = new Deposit();
+                    depo.ID = dr.GetString(0);
+                    depo.Account.AccountId = dr.GetString(1);
+                    depo.Customer.Username = dr.GetString(2);
+                    depo.Amount = dr.GetDecimal(3);
+                    depo.Desc = dr.GetString(4);
+                    depo.Time = dr.GetDateTime(5);
+                    this._deposits.Add(depo);
+                    result = true;
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                System.Diagnostics.Debug.WriteLine(e.ToString());
+            }
+            finally
+            {
+                db.OleDbConnection.Close();
+            }
+            return result;
+        }
+
+        // GetAccounts() returns true if there were records found. The method searches for all customer withdrawals
+        public bool GetWithdraws()
+        {
+            bool result = false;
+            this._withdraws = new List<Withdraw>();
+            db.cmd = "SELECT * FROM Withdrawals WHERE CustomerID = '" + Username + "';";
+            db.OleDbDataAdapter.SelectCommand.CommandText = db.cmd;
+            db.OleDbDataAdapter.SelectCommand.Connection = db.OleDbConnection;
+            Console.WriteLine(db.cmd);
+            System.Diagnostics.Debug.WriteLine(db.cmd);
+            try
+            {
+                db.OleDbConnection.Open();
+                System.Data.OleDb.OleDbDataReader dr = db.OleDbDataAdapter.SelectCommand.ExecuteReader();
+
+                // Acount object to hold an account's information
+                Withdraw withdraw;
+                // read data
+                while (dr.Read())
+                {
+                    withdraw = new Withdraw();
+                    withdraw.ID = dr.GetString(0);
+                    withdraw.Account.AccountId = dr.GetString(1);
+                    withdraw.Customer.Username = dr.GetString(2);
+                    withdraw.Amount = dr.GetDecimal(3);
+                    withdraw.Desc = dr.GetString(4);
+                    withdraw.Time = dr.GetDateTime(5);
+                    this._withdraws.Add(withdraw);
                     result = true;
                 }
 

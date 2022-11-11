@@ -41,6 +41,8 @@
             this.lblWelcome = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnGoBack = new System.Windows.Forms.Button();
+            this.txtDesc = new System.Windows.Forms.TextBox();
+            this.lblDesc = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listView1
@@ -74,7 +76,7 @@
             // lblAccountNumber
             // 
             this.lblAccountNumber.AutoSize = true;
-            this.lblAccountNumber.Location = new System.Drawing.Point(333, 236);
+            this.lblAccountNumber.Location = new System.Drawing.Point(165, 238);
             this.lblAccountNumber.Name = "lblAccountNumber";
             this.lblAccountNumber.Size = new System.Drawing.Size(83, 20);
             this.lblAccountNumber.TabIndex = 1;
@@ -82,14 +84,14 @@
             // 
             // txtAccountNo
             // 
-            this.txtAccountNo.Location = new System.Drawing.Point(437, 229);
+            this.txtAccountNo.Location = new System.Drawing.Point(269, 231);
             this.txtAccountNo.Name = "txtAccountNo";
             this.txtAccountNo.Size = new System.Drawing.Size(125, 27);
             this.txtAccountNo.TabIndex = 2;
             // 
             // txtAmount
             // 
-            this.txtAmount.Location = new System.Drawing.Point(437, 280);
+            this.txtAmount.Location = new System.Drawing.Point(269, 282);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(125, 27);
             this.txtAmount.TabIndex = 4;
@@ -97,7 +99,7 @@
             // lblWithdrawAmount
             // 
             this.lblWithdrawAmount.AutoSize = true;
-            this.lblWithdrawAmount.Location = new System.Drawing.Point(269, 283);
+            this.lblWithdrawAmount.Location = new System.Drawing.Point(101, 285);
             this.lblWithdrawAmount.Name = "lblWithdrawAmount";
             this.lblWithdrawAmount.Size = new System.Drawing.Size(147, 20);
             this.lblWithdrawAmount.TabIndex = 3;
@@ -152,11 +154,29 @@
             this.btnGoBack.UseVisualStyleBackColor = true;
             this.btnGoBack.Click += new System.EventHandler(this.btnGoBack_Click);
             // 
+            // txtDesc
+            // 
+            this.txtDesc.Location = new System.Drawing.Point(570, 282);
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Size = new System.Drawing.Size(202, 27);
+            this.txtDesc.TabIndex = 13;
+            // 
+            // lblDesc
+            // 
+            this.lblDesc.AutoSize = true;
+            this.lblDesc.Location = new System.Drawing.Point(439, 285);
+            this.lblDesc.Name = "lblDesc";
+            this.lblDesc.Size = new System.Drawing.Size(92, 20);
+            this.lblDesc.TabIndex = 12;
+            this.lblDesc.Text = "Description: ";
+            // 
             // WithdrawForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtDesc);
+            this.Controls.Add(this.lblDesc);
             this.Controls.Add(this.btnGoBack);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lblWelcome);
@@ -189,5 +209,7 @@
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
         private Button btnGoBack;
+        private TextBox txtDesc;
+        private Label lblDesc;
     }
 }

@@ -39,7 +39,7 @@ namespace ChattBank.Views.CustomerViews
         // method that returns all the textboxes for the current form object
         public TextBox[] GetTextBoxes()
         {
-            TextBox[] list = { txtCustId, txtFname, txtLname, txtEmail, txtPassword, txtState };
+            TextBox[] list = {txtCustId, txtFname, txtLname, txtEmail, txtPassword, txtState };
 
             return list;
         }

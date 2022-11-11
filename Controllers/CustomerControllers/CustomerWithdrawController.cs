@@ -37,6 +37,9 @@ namespace ChattBank.Controllers.CustomerControllers
 
         public bool MakeWithdraw()
         {
+            // initialize a new withdraw object
+            Withdraw withdraw = new Withdraw();
+            withdraw.Customer.Username = this.model.Username;
             TextBox[] txtboxes = this._form.GetTextBoxes();
             bool result = true;
             // validate account number
@@ -49,6 +52,7 @@ namespace ChattBank.Controllers.CustomerControllers
                     {
                         // match was found
                         result = true;
+                        withdraw.Account.AccountId = accts[i].AccountId;
                         break;
                     }
                     else
@@ -65,13 +69,19 @@ namespace ChattBank.Controllers.CustomerControllers
                 return result;
             }
 
-            // validate deposit
-            decimal deposit = 0;
+            // validate the description
+            if (!String.IsNullOrEmpty(txtboxes[2].Text))
+            {
+                withdraw.Desc = txtboxes[2].Text;
+            }
+
+            // validate withdrawal
+            decimal withdrawAmount = 0;
             if (!String.IsNullOrEmpty(txtboxes[1].Text))
             {
                 if (decimal.TryParse(txtboxes[1].Text, out decimal amount))
                 {
-                    deposit = decimal.Parse(txtboxes[1].Text);
+                    withdrawAmount = decimal.Parse(txtboxes[1].Text);
                 }
                 else
                 {
@@ -79,7 +89,7 @@ namespace ChattBank.Controllers.CustomerControllers
                     result = false;
                 }
 
-                if (deposit <= 0)
+                if (withdrawAmount <= 0)
                 {
                     MessageBox.Show("Please enter a value greater than zero");
                     result = false;
@@ -89,13 +99,17 @@ namespace ChattBank.Controllers.CustomerControllers
             // make deposit
             if (result)
             {
+                withdraw.Amount = withdrawAmount;
                 Account acct = new Account();
                 if (acct.Read(txtboxes[0].Text))
                 {
-                    acct.Balance -= deposit;
+                    acct.Balance -= withdrawAmount;
                     if (acct.Update())
                     {
-                        MessageBox.Show("Success!!! You made a withdrawal");
+                        if (withdraw.Create())
+                        {
+                            MessageBox.Show("Success!!! You made a withdrawal");
+                        }
                     }
                     else
                     {

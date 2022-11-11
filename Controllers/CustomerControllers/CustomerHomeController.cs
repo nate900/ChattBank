@@ -43,7 +43,7 @@ namespace ChattBank.Controllers.CustomerControllers
             else
             {
                 // need to get the list of customer accounts from DB
-                ListView listView = _form.GetListView();
+                ListView listView = _form.GetAccountsList();
                 listView.Items.Clear();
                 ListViewItem item;
                 Account account;
@@ -54,26 +54,38 @@ namespace ChattBank.Controllers.CustomerControllers
                     item = new ListViewItem(accountsInfo);
                     listView.Items.Add(item);
                 }
-
-                /*ListView accountsList = _form.GetListView();
-                ListViewItem item;
-                foreach (var account in model.Accounts())
-                {
-                    item = new ListViewItem();
-                    
-                    accountsList.Items.Add(item);
-                }*/
             }
-            /*for (int i = 0; i < sSchedule.Count; i++)
+
+            // display all deposits to the customer
+            if (model.GetDeposits())
             {
-                Section sSection = sSchedule.GetSection(i);
-                ListViewItem item = new ListViewItem(sSection.CRN.ToString());
-                item.SubItems.Add(sSection.CourseID.ToString());
-                item.SubItems.Add(sSection.TimeDay.ToString());
-                item.SubItems.Add(sSection.RoomNo.ToString());
-                item.SubItems.Add(sSection.InstructorID.ToString());
-                studentSchedule.Items.Add(item);
-            }*/
+                ListView listView = _form.GetAccountActivity();
+                listView.Items.Clear();
+                ListViewItem item;
+                Deposit depo;
+                for(int i = 0; i < model.Deposits().Count; i++)
+                {
+                    depo = model.Deposits()[i];
+                    string[] depoInfo = { "Deposit", depo.Account.AccountId, depo.Amount.ToString("C"), depo.Desc, depo.Time.ToString("yyyy/MM/dd") };
+                    item = new ListViewItem(depoInfo);
+                    listView.Items.Add(item);
+                }
+            }
+
+            // display all withdrawals to the customer
+            if (model.GetWithdraws())
+            {
+                ListView listView = _form.GetAccountActivity();
+                ListViewItem item;
+                Withdraw withdraw;
+                for (int i = 0; i < model.Withdraws().Count; i++)
+                {
+                    withdraw = model.Withdraws()[i];
+                    string[] withdrawInfo = { "Withdraw", withdraw.Account.AccountId, withdraw.Amount.ToString("C"), withdraw.Desc, withdraw.Time.ToString("yyyy/MM/dd") };
+                    item = new ListViewItem(withdrawInfo);
+                    listView.Items.Add(item);
+                }
+            }
         }
 
         public void GoNewAccount()

@@ -41,7 +41,7 @@ namespace ChattBank.Views.CustomerViews
             controller.Refresh();
         }
 
-        public TextBox[] GetTextBoxes() { return new TextBox[] { txtAcctNo, txtDepoAmount }; }
+        public TextBox[] GetTextBoxes() { return new TextBox[] { txtAcctNo, txtDepoAmount, txtDesc }; }
 
         public ListView GetListView() { return this.listView1; }
     }

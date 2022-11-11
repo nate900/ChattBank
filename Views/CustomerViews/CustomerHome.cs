@@ -49,9 +49,14 @@ namespace ChattBank.Views.CustomerViews
         }
 
         // method to return the reference to the listView1 object
-        public ListView GetListView()
+        public ListView GetAccountsList()
         {
             return this.listView1;
+        }
+
+        public ListView GetAccountActivity()
+        {
+            return this.listView2;
         }
 
         public Label GetWelcomeLabel() { return this.lblWelcome; }

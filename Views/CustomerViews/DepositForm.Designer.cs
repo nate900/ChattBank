@@ -41,6 +41,8 @@
             this.btnMakeDeposit = new System.Windows.Forms.Button();
             this.btnGoBack = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.txtDesc = new System.Windows.Forms.TextBox();
+            this.lblDesc = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblWelcome
@@ -83,7 +85,7 @@
             // lblAccountNo
             // 
             this.lblAccountNo.AutoSize = true;
-            this.lblAccountNo.Location = new System.Drawing.Point(234, 252);
+            this.lblAccountNo.Location = new System.Drawing.Point(81, 256);
             this.lblAccountNo.Name = "lblAccountNo";
             this.lblAccountNo.Size = new System.Drawing.Size(83, 20);
             this.lblAccountNo.TabIndex = 2;
@@ -91,14 +93,14 @@
             // 
             // txtAcctNo
             // 
-            this.txtAcctNo.Location = new System.Drawing.Point(365, 245);
+            this.txtAcctNo.Location = new System.Drawing.Point(212, 249);
             this.txtAcctNo.Name = "txtAcctNo";
             this.txtAcctNo.Size = new System.Drawing.Size(125, 27);
             this.txtAcctNo.TabIndex = 3;
             // 
             // txtDepoAmount
             // 
-            this.txtDepoAmount.Location = new System.Drawing.Point(365, 300);
+            this.txtDepoAmount.Location = new System.Drawing.Point(212, 304);
             this.txtDepoAmount.Name = "txtDepoAmount";
             this.txtDepoAmount.Size = new System.Drawing.Size(125, 27);
             this.txtDepoAmount.TabIndex = 5;
@@ -106,7 +108,7 @@
             // lblDepositAmount
             // 
             this.lblDepositAmount.AutoSize = true;
-            this.lblDepositAmount.Location = new System.Drawing.Point(234, 303);
+            this.lblDepositAmount.Location = new System.Drawing.Point(81, 307);
             this.lblDepositAmount.Name = "lblDepositAmount";
             this.lblDepositAmount.Size = new System.Drawing.Size(125, 20);
             this.lblDepositAmount.TabIndex = 4;
@@ -152,11 +154,29 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // Deposit
+            // txtDesc
+            // 
+            this.txtDesc.Location = new System.Drawing.Point(532, 301);
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Size = new System.Drawing.Size(202, 27);
+            this.txtDesc.TabIndex = 11;
+            // 
+            // lblDesc
+            // 
+            this.lblDesc.AutoSize = true;
+            this.lblDesc.Location = new System.Drawing.Point(401, 304);
+            this.lblDesc.Name = "lblDesc";
+            this.lblDesc.Size = new System.Drawing.Size(92, 20);
+            this.lblDesc.TabIndex = 10;
+            this.lblDesc.Text = "Description: ";
+            // 
+            // DepositForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtDesc);
+            this.Controls.Add(this.lblDesc);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnGoBack);
             this.Controls.Add(this.btnMakeDeposit);
@@ -167,7 +187,7 @@
             this.Controls.Add(this.lblAccountNo);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.lblWelcome);
-            this.Name = "Deposit";
+            this.Name = "DepositForm";
             this.Text = "Deposit";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -189,5 +209,7 @@
         private Button btnMakeDeposit;
         private Button btnGoBack;
         private Button btnRefresh;
+        private TextBox txtDesc;
+        private Label lblDesc;
     }
 }
